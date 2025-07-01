@@ -40,7 +40,7 @@ A Python-based toolkit for generating SEO-optimized content and embeddings for k
 ### 1. Generate SEO Content via CLI
 Run the enhanced generator (Ollama + Mistral):
 ```sh
-python seo_content_generator_enhanced.py --csv keywords.csv --model mistral:instruct --output generated_pages --content-type "landing page"
+python main.py --csv keywords.csv --model mistral:instruct --output generated_pages --content-type "landing page"
 ```
 
 ### 2. Generate Embeddings (Google)
@@ -74,7 +74,7 @@ python main.py
 ```
 
 ## File Structure
-- `seo_content_generator_enhanced.py` — Main CLI for Ollama/Mistral content
+- `main.py` — Main CLI for Ollama/Mistral content
 - `seo_content_generator.py` — Google embedding generator
 - `seo_content_generator_off.py` — Offline Ollama content generator
 - `main.py` — Simple CLI for content generation
