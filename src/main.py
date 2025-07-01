@@ -56,10 +56,27 @@ def generate_content(keyword: str, model: str, content_type: str) -> str:
 def save_to_markdown(keyword: str, content: str, output_dir: str):
     safe_name = keyword.replace(" ", "_").lower()
     filename = os.path.join(output_dir, f"{safe_name}.md")
+
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    header = f"""---
+    title: "{keyword.title()} | SEO Page"
+    date: {timestamp}
+    tags: [SEO, AI, Content, Landing Page]
+    generated_by: Mistral via Ollama
+    ---
+
+    # {keyword.title()}
+
+    > *Generated on {timestamp} using the Mistral open-source LLM engine.*
+
+    ---
+
+    """
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(f"# SEO Page: {keyword}\n")
-        f.write(f"*Generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
-        f.write(content)
+        f.write(header)
+        f.write(content.strip())
+        f.write("\n\n---\n")
+        f.write("_End of page_\n")
 
 # ---------------------------- MAIN ----------------------------
 

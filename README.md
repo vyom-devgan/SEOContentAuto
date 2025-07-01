@@ -29,9 +29,10 @@ A Python-based toolkit for generating SEO-optimized content and embeddings for k
    ```sh
    pip install -r requirements.txt
    ```
-3. Set up your `.env` file:
+3. Set up your `.env` file in the project root:
    ```env
    GOOGLE_API_KEY=your-google-api-key
+   API_KEY=your-api-key
    # Optional: OLLAMA_BASE_URL=http://localhost:11434
    ```
 
@@ -57,7 +58,7 @@ uvicorn api:app --reload
 Then POST to `/generate` with JSON:
 ```json
 {
-  "keywords": ["Bill Gates", "best eSIM for travel"],
+  "keywords": ["Bill Gates", "best eSIM for travel", "Jeff Bezos", "Elon Musk"],
   "content_type": "landing page",
   "model": "mistral"
 }
@@ -74,15 +75,18 @@ python main.py
 ```
 
 ## File Structure
+- `src/` — (if used) contains all Python source code files
 - `seo_content_generator_enhanced.py` — Main CLI for Ollama/Mistral content
 - `seo_content_generator.py` — Google embedding generator
 - `seo_content_generator_off.py` — Offline Ollama content generator
 - `main.py` — Simple CLI for content generation
 - `api.py` — FastAPI server
 - `mistral_client.py` — Ollama API client
+- `test_api.py` — FastAPI endpoint tests
 - `keywords.csv` — Input keywords (edit as needed)
 - `generated_pages/` — Output Markdown files
 - `logs/` — Error logs
+- `requirements.txt` — Python dependencies
 
 ## Notes
 - Make sure Ollama is running (`ollama serve`) and the model (e.g., `mistral:instruct`) is pulled (`ollama pull mistral:instruct`).
@@ -94,6 +98,7 @@ Sample `keywords.csv`:
 ```csv
 keyword
 Bill Gates
-best eSIM for international travel
-global SIM cards for business
+Jeff Bezos
+Elon Musk
+best eSIM for travel
 ```
