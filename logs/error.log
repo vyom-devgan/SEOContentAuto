@@ -1,0 +1,3 @@
+2025-07-01 11:56:49,751 - ERROR - Error generating for 'best eSIM for international travel': Ollama API error: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-07-01 11:56:51,785 - ERROR - Error generating for 'global SIM cards for business': Ollama API error: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-07-01 11:56:53,832 - ERROR - Error generating for 'how eSIMs save roaming costs': Ollama API error: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
